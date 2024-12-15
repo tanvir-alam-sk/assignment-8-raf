@@ -1,0 +1,6 @@
+.venv
+**/__pycache__/
+
+trip_crawler/hotel_images
+trip_crawler/.env
+trip_crawler/config.py
