@@ -1,12 +1,12 @@
-BOT_NAME = "trip_crawler"
+from config import DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
+SQLALCHEMY_CONNECTION_STRING = f'postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
+
+BOT_NAME = "trip_crawler"
 SPIDER_MODULES = ["trip_crawler.spiders"]
 NEWSPIDER_MODULE = "trip_crawler.spiders"
 
 
-
-# PostgreSQL Connection String
-SQLALCHEMY_CONNECTION_STRING = 'postgresql+psycopg2://postgres:postgres@localhost:5432/scrapingdb'
 # Enable the PostgreSQL Pipeline
 ITEM_PIPELINES = {
    'trip_crawler.pipelines.PostgreSQLPipeline': 300,
