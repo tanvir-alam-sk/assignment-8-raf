@@ -1,9 +1,0 @@
-#config.py
-DB_USERNAME='postgres'
-DB_PASSWORD='postgres'
-DB_NAME='scrapingdb'
-DB_PORT='5432'
-DB_HOST='localhost'
-
-
-No need to .env file
