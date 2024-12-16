@@ -11,6 +11,9 @@ def connection_string():
     
     If you use postgres(not docker), than you should creat database
 
+    "C:\Program Files\PostgreSQL\17\bin\psql.exe" -U postgres
+    CREATE DATABASE test_db;
+
     DB_USERNAME='postgres'
     DB_PASSWORD='postgres'
     DB_NAME='test_db'
