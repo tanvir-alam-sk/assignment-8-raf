@@ -1,6 +1,8 @@
 .venv
 **/__pycache__/
 
+data
+
 trip_crawler/hotel_images
 
 trip_crawler/.env
@@ -11,3 +13,6 @@ trip_crawler/.pytest_caches
 trip_crawler/htmlcov
 trip_crawler/.coverage
 trip_crawler/pytest
+
+
+.gitignore
