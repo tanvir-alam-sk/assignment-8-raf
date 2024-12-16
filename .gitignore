@@ -2,5 +2,12 @@
 **/__pycache__/
 
 trip_crawler/hotel_images
+
 trip_crawler/.env
 trip_crawler/config.py
+
+
+trip_crawler/.pytest_caches
+trip_crawler/htmlcov
+trip_crawler/.coverage
+trip_crawler/pytest

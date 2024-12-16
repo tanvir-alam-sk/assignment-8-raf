@@ -1,7 +1,9 @@
 services:
   scraper:
     build: .
-    container_name: Scraper_container
+    container_name: scraper_Container
+    ports:
+      - "8000:8000"
     volumes:
       - .:/usr/src/app
       - ./hotel_images:/usr/src/app/hotel_images
@@ -14,9 +16,10 @@ services:
       - DATABASE_URL=postgresql+psycopg2://aa_nadim:aa_nadim123@postgres:5432/scraping_db
     command: ["scrapy", "crawl", "tripCrawler"]
 
+
   postgres:
     image: postgres:latest
-    container_name: postgresDB_container
+    container_name: postgresDB_Container
     environment:
       - POSTGRES_USER=aa_nadim
       - POSTGRES_PASSWORD=aa_nadim123
@@ -33,9 +36,10 @@ services:
     networks:
       - app_network
 
+
   pgadmin:
     image: dpage/pgadmin4:latest
-    container_name: pgadmin
+    container_name: pgadmin_Container
     ports:
       - "5050:80"
     environment:
@@ -47,9 +51,22 @@ services:
     networks:
       - app_network
 
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer_Container
+    ports:
+      - "9443:9443"
+    volumes:
+      - portainer-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  
 volumes:
   postgres_data:
   pgadmin_data:
+  portainer-data:
 
 networks:
   app_network:
