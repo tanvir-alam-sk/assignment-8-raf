@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from trip_crawler.database.base import Base
 from trip_crawler.database.models import Hotel
+from config import DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME
 
 @pytest.fixture(scope='session')
 def connection_string():
@@ -20,7 +21,8 @@ def connection_string():
     DB_PORT='5432'
     DB_HOST='localhost'
     """
-    return f'postgresql+psycopg2://postgres:postgres@localhost:5432/test_db'
+    # return f'postgresql+psycopg2://postgres:postgres@localhost:5432/test_db'
+    return f'postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
 @pytest.fixture(scope='session')
 def engine(connection_string):

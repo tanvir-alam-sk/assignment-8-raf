@@ -1,40 +1,45 @@
 services:
-  scraper:
-    build: .
-    container_name: scraper_Container
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/usr/src/app
-      - ./hotel_images:/usr/src/app/hotel_images
-    working_dir: /usr/src/app
-    depends_on:
-      - postgres
-    networks:
-      - app_network
-    environment:
-      - DATABASE_URL=postgresql+psycopg2://aa_nadim:aa_nadim123@postgres:5432/scraping_db
-    command: ["scrapy", "crawl", "tripCrawler"]
-
-
   postgres:
     image: postgres:latest
     container_name: postgresDB_Container
+    env_file:
+      - .env
     environment:
-      - POSTGRES_USER=aa_nadim
-      - POSTGRES_PASSWORD=aa_nadim123
-      - POSTGRES_DB=scraping_db
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "9000:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:  
-      test: ["CMD-SHELL", "pg_isready -U aa_nadim"]
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME}"]
       interval: 10s
       timeout: 5s
       retries: 5
     networks:
       - app_network
+
+
+  scraper:
+    build: .
+    container_name: scraper_Container
+    volumes:
+      - .:/usr/src/app
+      - ./hotel_images:/usr/src/app/hotel_images
+    working_dir: /usr/src/app
+    depends_on:
+      postgres:
+        condition: service_healthy  
+    networks:
+      - app_network
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+    ports:
+      - "8000:8000"
+    command: ["scrapy", "crawl", "tripCrawler"]
 
 
   pgadmin:
@@ -51,22 +56,27 @@ services:
     networks:
       - app_network
 
-
-  portainer:
-    image: portainer/portainer-ce:latest
-    container_name: portainer_Container
-    ports:
-      - "9443:9443"
+  tests:
+    build: .
+    container_name: tests_Container
+    depends_on:
+      postgres:
+        condition: service_healthy  
+    networks:
+      - app_network
     volumes:
-      - portainer-data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+    command: ["pytest", "--cov=trip_crawler", "tests/", "--cov-report=html"]
 
-  
+
 volumes:
   postgres_data:
   pgadmin_data:
-  portainer-data:
 
 networks:
   app_network:

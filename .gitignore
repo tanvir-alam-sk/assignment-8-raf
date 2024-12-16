@@ -8,7 +8,7 @@ trip_crawler/hotel_images
 trip_crawler/.env
 trip_crawler/config.py
 
-
+.pytest_caches
 trip_crawler/.pytest_caches
 trip_crawler/htmlcov
 trip_crawler/.coverage
