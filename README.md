@@ -90,10 +90,12 @@ Make sure the following software is installed on your system:
     ```bash
     docker-compose run scrapy crawl tripCrawler
     ```
-Or, you can use Portainer to run the Scrapy spider by clicking on the `Containers` tab, then clicking on the `scraper_Container` container, and then clicking on the `Start` button.
+    Or, you can use Portainer to run the Scrapy spider by clicking on the `Containers` tab, then clicking on the `scraper_Container` container, and then clicking on the `Start` button.
+
+    You can see the scraped data in the `hotels` table in the `scraping_db` database in `http://localhost:5050/browser/`
 
 
-7. Run the tests:When we ran `docker-compose up -d --build` in the `trip_crawler` directory, it automatically started the tests and stoped after running the tests. To run the tests manually, you can use the following command:
+7. Run the tests: When we ran `docker-compose up -d --build` in the `trip_crawler` directory, it automatically started the tests and stoped after running the tests. To run the tests manually, you can use the following command:
     ```bash
     docker-compose run tests pytest --cov=trip_crawler tests/ --cov-report=html
     ```
