@@ -14,5 +14,5 @@ trip_crawler/htmlcov
 trip_crawler/.coverage
 trip_crawler/pytest
 
-
-.gitignore
+env.txt
+help.txt
