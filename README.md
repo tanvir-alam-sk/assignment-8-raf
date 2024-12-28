@@ -75,7 +75,6 @@ Make sure the following software is installed on your system:
 
     i. Build the `Scrapy`, `Postgres`, `Tests` and `Pgadmin` Docker images:
     ```bash
-    cd trip_crawler
     docker-compose up -d --build
     ```
     `Note: Portainer will be available at https://localhost:9443`
