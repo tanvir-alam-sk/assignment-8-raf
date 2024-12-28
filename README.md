@@ -73,18 +73,12 @@ Make sure the following software is installed on your system:
 
 5. Build and start the Docker containers:
 
-    i. Build the `Portainer` Docker images:
-    ```bash
-    cd portainer
-    docker-compose up -d --build
-    ```
-    `Note: Portainer will be available at https://localhost:9443`
-
-    ii. Build the `Scrapy`, `Postgres`, `Tests` and `Pgadmin` Docker images:
+    i. Build the `Scrapy`, `Postgres`, `Tests` and `Pgadmin` Docker images:
     ```bash
     cd ../trip_crawler
     docker-compose up -d --build
     ```
+    `Note: Portainer will be available at https://localhost:9443`
 
 6. Run the Scrapy spider: When we ran `docker-compose up -d --build` in the `trip_crawler` directory, it automatically started the Scrapy spider and stoped after scraping the data. To run the spider manually, you can use the following command:
     ```bash

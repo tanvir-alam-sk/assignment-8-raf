@@ -1,18 +1,10 @@
 .venv
 **/__pycache__/
 
-data
+hotel_images
+htmlcov
+.coverage
 
-trip_crawler/hotel_images
-
-trip_crawler/.env
-trip_crawler/config.py
-
+.pytest_cache
 .pytest_caches
-trip_crawler/.pytest_caches
-trip_crawler/htmlcov
-trip_crawler/.coverage
-trip_crawler/pytest
 
-env.txt
-help.txt

@@ -73,10 +73,21 @@ services:
       - DATABASE_URL=postgresql+psycopg2://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
     command: ["pytest", "--cov=trip_crawler", "tests/", "--cov-report=html"]
 
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer_Container
+    ports:
+      - "9443:9443"
+    volumes:
+      - portainer-data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
 
 volumes:
   postgres_data:
   pgadmin_data:
+  portainer-data:
 
 networks:
   app_network:
