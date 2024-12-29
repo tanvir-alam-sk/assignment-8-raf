@@ -45,7 +45,7 @@ Make sure the following software is installed on your system:
 
 2. Create a virtual environment and activate it:
     ```bash
-    python -m venv .venv
+    python3 -m venv .venv
     source .venv/bin/activate   # On Windows use `source .venv/Scripts/activate`
     ```
 
@@ -95,6 +95,6 @@ Make sure the following software is installed on your system:
     Or, you can use Portainer to run the tests by clicking on the `Containers` tab, then clicking on the `tests_Container` container, and then clicking on the `Start` button.
 
 
-    you can see the tests in `tip_crawler/htmlcov/index.html`
+    you can see the tests in `htmlcov/index.html`
 
 
