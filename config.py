@@ -1,5 +1,5 @@
-DB_USERNAME='aa_nadim'
-DB_PASSWORD='aa_nadim123'
-DB_NAME='scraping_db'
+DB_USERNAME='tanvir'
+DB_PASSWORD='tanvir1234'
+DB_NAME='scrapingdb1'
 DB_PORT='5432'
 DB_HOST='postgres'
