@@ -39,20 +39,20 @@ This project is designed for web scraping and managing data using Docker contain
 
    docker system prune -a --volumes          # Remove all unused data (containers, networks, images, and volumes). Cleans up all unused containers, images, networks, and volumes.
    ```
-7. Build and start the Docker containers:
+5. Build and start the Docker containers:
 
    i. Build the `Scrapy`, `Postgres`, `Tests` and `Pgadmin` Docker images:
 
    ```bash
    docker-compose up -d --build
    ```
-   fou sure to run container "postgresDB_Container"
+   for sure to run container "postgresDB_Container"
 
    ```
    docker-compose up -d --build postgres
    ```
-8. `Note: Portainer will be available at https://localhost:9443`
-9. Run the Scrapy spider: When we ran `docker-compose up -d --build` in the `trip_crawler` directory, it automatically started the Scrapy spider and stoped after scraping the data. To run the spider manually, you can use the following command:
+6. `  Note: Portainer will be available at https://localhost:9443`
+7. Run the Scrapy spider: When we ran `docker-compose up -d --build` in the `trip_crawler` directory, it automatically started the Scrapy spider and stoped after scraping the data. To run the spider manually, you can use the following command:
 
    ```bash
    docker-compose run scrapy crawl tripCrawler
