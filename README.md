@@ -14,8 +14,8 @@ This project is designed for web scraping and managing data using Docker contain
 2. Create a virtual environment and activate it:
 
    ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate   # On Windows use `source .venv/Scripts/activate`
+   python3 -m venv env
+   source env/bin/activate   # On Windows use `source .venv/Scripts/activate`
    ```
 3. Install the required Python packages:
 
