@@ -7,7 +7,7 @@ This project is designed for web scraping and managing data using Docker contain
 1. Clone the repository:
 
 ```bash
-   https://github.com/tanvir-alam-sk/assignment-8-raf crawler
+   git clone https://github.com/tanvir-alam-sk/assignment-8-raf crawler
    cd crawler
 ```
 
