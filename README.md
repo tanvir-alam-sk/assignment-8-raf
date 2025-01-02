@@ -31,7 +31,7 @@ This project is designed for web scraping and managing data using Docker contain
 
    docker image prune                        # Remove dangling images (unused layers). Removes image layers not associated with any container.
 
-   docker image prune -a                     # Remove all unused images (dangling and unreferenced). Deletes all unused images, including dangling and unreferenced ones.
+   docker image prune -a                     # Remove all unused images (dangling and unreferenced). Deletes all unused images, including dangling --------------------------------------------and unreferenced ones. 
 
    docker volume prune                       # Remove unused volumes. Cleans up volumes not connected to any container.
 
