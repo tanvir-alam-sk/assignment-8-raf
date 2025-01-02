@@ -39,8 +39,6 @@ This project is designed for web scraping and managing data using Docker contain
 
    docker system prune -a --volumes          # Remove all unused data (containers, networks, images, and volumes). Cleans up all unused containers, images, networks, and volumes.
    ```
-5. 
-6. 
 7. Build and start the Docker containers:
 
    i. Build the `Scrapy`, `Postgres`, `Tests` and `Pgadmin` Docker images:
